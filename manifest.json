@@ -1,9 +1,9 @@
 {
   "name": "PowerTires POS",
   "short_name": "PowerTires",
-  "start_url": "index.html",
+  "start_url": "./",
   "display": "standalone",
-  "background_color": "#f4f4f4",
+  "background_color": "#111827",
   "theme_color": "#111827",
   "icons": []
 }

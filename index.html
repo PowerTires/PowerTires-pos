@@ -1,51 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PowerTires POS</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <header>
-    <h1>PowerTires POS</h1>
-    <p>Sales & Inventory System</p>
+  <header class="topbar">
+    <div>
+      <h1>PowerTires POS</h1>
+      <p>Sales and Inventory System</p>
+    </div>
+    <span id="statusBadge" class="status">Online</span>
   </header>
 
-  <main>
-    <div class="card">
-      <h2>Dashboard</h2>
-      <p>Status: <span id="status">Checking...</span></p>
-    </div>
+  <nav class="nav">
+    <button onclick="showDashboard()">Dashboard</button>
+    <button onclick="showInventory()">Inventory</button>
+    <button onclick="comingSoon('New Sale')">New Sale</button>
+    <button onclick="comingSoon('Customers')">Customers</button>
+    <button onclick="comingSoon('Reports')">Reports</button>
+  </nav>
 
-    <div class="card">
-      <h3>Quick Actions</h3>
-      <button onclick="newSale()">New Sale</button>
-      <button onclick="inventory()">Inventory</button>
-      <button onclick="customers()">Customers</button>
-      <button onclick="reports()">Reports</button>
-    </div>
+  <main id="app"></main>
 
-    <div class="card">
-      <h3>Today</h3>
-      <p>Sales: ₱0.00</p>
-      <p>Transactions: 0</p>
-      <p>Low Stock: 0</p>
-    </div>
-  </main>
-
-  <script src="config.js"></script>
-  <script src="supabase.js"></script>
   <script src="app.js"></script>
-
-  <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("sw.js");
-    }
-
-    document.getElementById("status").innerText =
-      navigator.onLine ? "Online" : "Offline";
-  </script>
 </body>
 </html>
