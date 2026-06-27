@@ -1,1 +1,42 @@
-# PowerTires-pos
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PowerTires POS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>PowerTires POS</h1>
+    <p>Sales and Inventory System</p>
+  </header>
+
+  <main>
+    <div class="card">
+      <h2>Dashboard</h2>
+      <button onclick="newSale()">New Sale</button>
+      <button onclick="inventory()">Inventory</button>
+      <button onclick="customers()">Customers</button>
+      <button onclick="reports()">Reports</button>
+    </div>
+
+    <div class="card">
+      <h3>Status</h3>
+      <p id="status">Checking app...</p>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js");
+    }
+
+    document.getElementById("status").innerText =
+      navigator.onLine ? "Online" : "Offline";
+  </script>
+</body>
+</html>
